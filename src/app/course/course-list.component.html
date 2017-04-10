@@ -1,0 +1,18 @@
+<h1>Welcome to Course Registration</h1>
+<h2>Available Courses</h2>
+<div class="row">
+  <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+    <div class="list-group" *ngFor="let course of courses">
+      <cr-course-list-item [course]=course
+       [active]="course.courseId === selectedCourse?.courseId"
+       (selected)=handleSelection($event)>
+      </cr-course-list-item>
+    </div>
+  </div>
+  <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7" *ngIf="selectedCourse != null">
+     <cr-course-detail [course]="selectedCourse"></cr-course-detail>
+     <br/>
+     <button type="button" class="btn btn-primary">Add to Course Cart</button>
+  </div>
+  
+</div>
